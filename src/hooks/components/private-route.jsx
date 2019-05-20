@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Route, Redirect} from 'react-router-dom';
-import {Store} from "../store";
+import {Store} from "../store/redux-hooks";
 
 function PrivateRoute({component: Component, ...rest}) {
   const {state} = React.useContext(Store);

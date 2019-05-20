@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {connect} from "../../store";
+import {connect} from "../../store/redux-hooks";
 import {loadFollowers} from '../../store/followers/actions';
 import Follower from "./follower";
 

@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {connect} from "../../store";
+import {connect} from "../../store/redux-hooks";
 import Octicon, {Organization, Mail, Briefcase} from "@githubprimer/octicons-react";
 
 function Index(props) {

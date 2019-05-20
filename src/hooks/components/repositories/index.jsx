@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {connect} from "../../store";
+import {connect} from "../../store/redux-hooks";
 import {loadRepositories as load} from '../../store/repos/actions';
 import Repo from "./repo";
 import {reposCountSelector} from "../../store/repos/selector";

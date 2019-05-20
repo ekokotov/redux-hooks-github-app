@@ -1,10 +1,10 @@
 import React from 'react';
-// import reducers from "./reducer";
-// import {devToolsEnhancer} from 'redux-devtools-extension';
+import {Store} from '.';
+import PropTypes from 'prop-types';
 
-export const Store = React.createContext();
 // const devTools = devToolsEnhancer;
 // let _redux;
+// import {devToolsEnhancer} from 'redux-devtools-extension';
 
 export function StoreProvider(props) {
   let [state, setState] = React.useReducer(props.store.reducers, props.store.initialState || props.store.reducers());
@@ -33,22 +33,12 @@ export function StoreProvider(props) {
   return <Store.Provider value={{state, dispatch}}>{props.children}</Store.Provider>;
 }
 
-export const createStore = (reducers, initialState) => ({reducers, initialState});
-export const compose = (...funcs) => (...args) => funcs.forEach(f => f(...args));
-export const applyMiddleware = compose;
+StoreProvider.propTypes = {
+  store: PropTypes.object.shape({
+    initialState: PropTypes.object.optional,
+    reducers: PropTypes.func.isRequired,
+  }),
+  middleware: PropTypes.array.optional
+};
 
-export function connect(mapStateToProps, mapActions) {
-  return Component => () => {
-    const {state, dispatch} = React.useContext(Store);
-    const mappedActions = {};
-    const mappedStateToProps = mapStateToProps ? mapStateToProps(state) : {};
-
-    for (const key in mapActions) {
-      if (mapActions.hasOwnProperty(key)) {
-        mappedActions[key] = args => dispatch(mapActions[key](args))
-      }
-    }
-    // Wraps the input component in a container, without mutating it. Good!
-    return <Component {...mappedStateToProps} {...mappedActions} />;
-  }
-}
+export default StoreProvider;
