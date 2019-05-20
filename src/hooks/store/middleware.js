@@ -8,5 +8,3 @@ export const stateLogger = (store, dispatch, action) => {
   console.log('next state', store);
   return result
 };
-
-export const compose = (...funcs) => (...arg) => funcs.forEach(f => f(...arg));

@@ -13,6 +13,7 @@ function Login(props) {
 
   const submit = async event => {
     event.preventDefault();
+    event.stopPropagation();
     await props.login({username: username.current.value, password: password.current.value});
     props.history.push('/');
   };
