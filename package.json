@@ -1,6 +1,6 @@
 {
   "name": "redux-hooks-github-app",
-  "version" : "0.0.1",
+  "version": "0.0.1",
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
@@ -27,6 +27,7 @@
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "rollup-plugin-multi-entry": "^2.1.0"
   },

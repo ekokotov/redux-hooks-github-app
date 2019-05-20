@@ -4,10 +4,12 @@ import DashBoard from "./pages/dashboard";
 import {Switch, Route} from 'react-router-dom';
 import PrivateRoute from "./components/private-route";
 import {initAuth} from './store/auth/actions';
-import {connect} from "react-redux";
+import {connect} from "./store";
 
 function Routes(props) {
-  useEffect(props.initUser, []);
+  useEffect(() => {
+    props.initUser();
+  }, []);
 
   return <Switch>
     <Route path="/login" component={LoginPage}/>

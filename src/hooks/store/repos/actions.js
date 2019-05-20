@@ -9,6 +9,7 @@ export const loadRepositories = () => async dispatch => {
     dispatch({type: LOADING_SUCCESS, payload: {repos}});
   } catch (e) {
     dispatch({type: LOADING_FAILED});
+  } finally {
+    dispatch({type: LOADING_END});
   }
-  dispatch({type: LOADING_END});
 };

@@ -1,10 +1,11 @@
 import React, {Fragment} from "react";
 import Nav from '../components/navigation';
+
 import Stats from "../components/stats";
 import Repos from "../components/repositories";
 import Followers from "../components/followers";
 
-function DashBoard(props) {
+function DashBoard() {
   return (
     <Fragment>
       <Nav/>

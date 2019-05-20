@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {logout} from '../store/auth/actions';
-import {connect} from "react-redux";
+import {connect} from "../store";
 import Octicon, {SignOut, Location} from "@githubprimer/octicons-react";
 
 function Nav(props) {
-
   return (
     <nav className="navbar navbar-dark bg-primary">
       <a href={props.me.html_url} className="navbar-brand p-0" target="_blank">
@@ -26,6 +26,11 @@ function Nav(props) {
     </nav>
   )
 }
+
+Nav.propTypes = {
+  me: PropTypes.object,
+  logout: PropTypes.func,
+};
 
 export default connect(
   state => ({

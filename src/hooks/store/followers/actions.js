@@ -9,6 +9,7 @@ export const loadFollowers = () => async dispatch => {
     dispatch({type: LOADING_SUCCESS, payload: {followers}});
   } catch (e) {
     dispatch({type: LOADING_FAILED});
+  } finally {
+    dispatch({type: LOADING_END});
   }
-  dispatch({type: LOADING_END});
 };

@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import Alert from '../components/alert';
 import FormInput from '../components/input';
 import {login as signIn} from "../store/auth/actions";
-import {connect} from "react-redux";
+import {connect} from "../store";
 import Octicon, {LogoGithub} from "@githubprimer/octicons-react";
 
 function Login(props) {
@@ -43,7 +43,8 @@ function Login(props) {
 Login.propTypes = {
   history: PropTypes.object.isRequired,
   errors: PropTypes.object,
-  inProgress: PropTypes.bool.isRequired
+  inProgress: PropTypes.bool.isRequired,
+  login: PropTypes.func.isRequired
 };
 
 export default connect(state => ({
