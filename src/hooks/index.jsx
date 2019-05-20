@@ -8,11 +8,11 @@ import reducers from './store/reducer';
 
 console.log('React hooks implementation');
 
-const middlewares = applyMiddleware(actionLogger, stateLogger);
+const middleware = applyMiddleware(actionLogger, stateLogger);
 const store = createStore(reducers);
 
 render(
-  <StoreProvider middlewares={middlewares} store={store}>
+  <StoreProvider middleware={middleware} store={store}>
     <HashRouter>
       <Routes/>
     </HashRouter>

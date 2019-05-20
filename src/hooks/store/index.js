@@ -22,10 +22,10 @@ export function StoreProvider(props) {
       return action(dispatch);
     } else if (typeof action === 'object') {
       // devTools.send(action, reducers(state, action));
-      if (props.middlewares && props.middlewares.length) {
+      if (props.middleware && props.middleware.length) {
         return setState(action);
       } else {
-        return props.middlewares(state, setState, action);
+        return props.middleware(state, setState, action);
       }
     }
   }
