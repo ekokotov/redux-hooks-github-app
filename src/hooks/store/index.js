@@ -1,5 +1,6 @@
 import React from 'react';
 import reducers from "./reducer";
+import {actionLogger, compose, stateLogger} from "./middleware";
 // import {devToolsEnhancer} from 'redux-devtools-extension';
 
 export const Store = React.createContext();
@@ -17,12 +18,18 @@ export function StoreProvider(props) {
   //   }
   // });
 
+  const midlewares = compose(actionLogger, stateLogger);
+
   function dispatch(action) { //own dispatch
     if (typeof action === 'function') {
       action(dispatch);
     } else if (typeof action === 'object') {
       // devTools.send(action, reducers(state, action));
-      storeDispatch(action)
+      if (!midlewares || !midlewares.length) {
+        storeDispatch(action);
+      } else {
+        midlewares(state, storeDispatch, action);
+      }
     }
   }
 

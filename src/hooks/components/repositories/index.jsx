@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from "../../store";
 import {loadRepositories as load} from '../../store/repos/actions';
 import Repo from "./repo";
+import {reposCountSelector} from "../../store/repos/selector";
 
 function Repositories(props) {
   useEffect(() => {
@@ -12,7 +13,7 @@ function Repositories(props) {
   return (
     <Fragment>
       <h3>Repositories
-        {!props.inProgress && <span className="badge badge-info mr-1 ml-1">{props.repos.length}</span>}
+        {!props.inProgress && <span className="badge badge-info mr-1 ml-1">{props.reposCount}</span>}
         :</h3>
       {props.inProgress && <div className="d-flex justify-content-center mt-5">
         <span className="spinner-border spinner-border-md text-info" role="status">
@@ -28,12 +29,14 @@ function Repositories(props) {
 
 Repositories.propTypes = {
   repos: PropTypes.array,
+  reposCount: PropTypes.number,
   inProgress: PropTypes.bool.isRequired
 };
 
 export default connect(
   state => ({
     repos: state.repositories.items,
+    reposCount: reposCountSelector(state),
     inProgress: state.repositories.inProgress
   }),
   {loadRepositories: load}
