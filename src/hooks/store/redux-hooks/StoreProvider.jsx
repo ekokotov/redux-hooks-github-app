@@ -19,13 +19,13 @@ export function StoreProvider(props) {
 
   function dispatch(action) { //own dispatch
     if (typeof action === 'function') {
-      return action(dispatch);
+      return action(dispatch, state);
     } else if (typeof action === 'object') {
       // devTools.send(action, reducers(state, action));
       if (props.middleware && props.middleware.length) {
-        return setState(action);
-      } else {
         return props.middleware(state, setState, action);
+      } else {
+        return setState(action);
       }
     }
   }
@@ -34,11 +34,11 @@ export function StoreProvider(props) {
 }
 
 StoreProvider.propTypes = {
-  store: PropTypes.object.shape({
+  store: PropTypes.shape({
     initialState: PropTypes.object.optional,
     reducers: PropTypes.func.isRequired,
   }),
-  middleware: PropTypes.array.optional
+  middleware: PropTypes.array
 };
 
 export default StoreProvider;

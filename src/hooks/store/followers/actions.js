@@ -1,5 +1,5 @@
 import {LOADING_END, LOADING_FAILED, LOADING_START, LOADING_SUCCESS} from './action-types';
-import API from "../../lib/api";
+import API from "../../../lib/api";
 
 export const loadFollowers = () => async dispatch => {
   dispatch({type: LOADING_START});

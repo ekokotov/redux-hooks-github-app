@@ -1,5 +1,5 @@
 import {LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT, LOGIN_END, LOGIN_INIT} from './action-types';
-import API from '../../lib/api';
+import API from '../../../lib/api';
 
 export const login = userData => async dispatch => {
   dispatch({type: LOGIN_START});

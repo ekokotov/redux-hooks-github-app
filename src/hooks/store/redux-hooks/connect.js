@@ -1,3 +1,4 @@
+import React from 'react';
 import {Store} from "./index";
 
 export default function connect(mapStateToProps, mapActions) {

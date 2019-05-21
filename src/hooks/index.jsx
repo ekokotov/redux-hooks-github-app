@@ -8,7 +8,7 @@ import reducers from './store/reducer';
 
 console.log('React hooks implementation');
 
-const middleware = applyMiddleware(actionLogger, stateLogger);
+const middleware = null; //applyMiddleware(actionLogger, stateLogger);
 const store = createStore(reducers);
 
 render(

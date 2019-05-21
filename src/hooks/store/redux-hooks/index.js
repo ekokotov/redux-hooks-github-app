@@ -11,4 +11,3 @@ export const applyMiddleware = compose;
 export const StoreProvider = Provider;
 export const connect = connectComponent;
 export const combineReducers = combineAllReducers;
-

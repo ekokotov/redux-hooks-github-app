@@ -1,6 +1,7 @@
-import Octokit from "@octokit/rest";
+import Octokit from "@octokit/rest/index";
 
 const GITHUB_APP_TOKEN = 'test_github_client_token';
+const LOAD_EVENTS_PER_PAGE = 10;
 
 class GithubAPI {
   client = null;
@@ -48,6 +49,16 @@ class GithubAPI {
 
   getFollowers() {
     return this.client.users.listFollowersForAuthenticatedUser().then(this._mapResponse);
+  }
+
+  getFeed(username, page) {
+    const pagingOptions = {per_page: LOAD_EVENTS_PER_PAGE, page};
+    const endpoint = this.client.activity.listReceivedEventsForUser.endpoint.merge({username, ...pagingOptions});
+
+    return this.client.paginate(endpoint, (resp, done) => {
+      done(); // stop paging
+      return this._mapResponse(resp);
+    })
   }
 }
 
