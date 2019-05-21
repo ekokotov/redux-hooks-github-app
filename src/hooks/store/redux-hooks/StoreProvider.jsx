@@ -22,11 +22,12 @@ export function StoreProvider(props) {
       return action(dispatch, state);
     } else if (typeof action === 'object') {
       // devTools.send(action, reducers(state, action));
-      if (props.middleware && props.middleware.length) {
-        return props.middleware(state, setState, action);
-      } else {
-        return setState(action);
-      }
+      // if (props.middleware && props.middleware.length) {
+      //   return props.middleware(state, setState, action);
+      // } else {
+      //   return setState(action);
+      // }
+      return setState(action);
     }
   }
 
@@ -38,7 +39,7 @@ StoreProvider.propTypes = {
     initialState: PropTypes.object.optional,
     reducers: PropTypes.func.isRequired,
   }),
-  middleware: PropTypes.array
+  // middleware: PropTypes.array
 };
 
 export default StoreProvider;

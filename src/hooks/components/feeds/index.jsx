@@ -24,13 +24,15 @@ function Feed() {
         {state.feeds.events.map(event => <Event data={event}/>)}
       </ul>
       <div className="d-flex justify-content-center">
-        {state.feeds.events.length ? <button className="btn btn-outline-success btn-sm m-3" onClick={() => dispatch(loadNextPage())}>
-          {state.feeds.inProgress ? <Fragment>
-              <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"/>
-              <span className="sr-only">Loading...</span> Loading...
-            </Fragment> :
-            <span>Load more</span>}
-        </button>: null }
+        {state.feeds.events.length ?
+          <button className="btn btn-outline-success btn-sm m-3" onClick={() => dispatch(loadNextPage())}>
+            {state.feeds.inProgress ?
+              <Fragment>
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"/>
+                <span className="sr-only">Loading...</span> Loading...
+              </Fragment> :
+              <span>Load more</span>}
+          </button> : null}
       </div>
     </Fragment>
   );
