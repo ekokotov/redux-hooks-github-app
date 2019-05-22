@@ -29,6 +29,7 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "redux2hooks": "0.0.3",
     "reselect": "^4.0.0",
     "rollup-plugin-multi-entry": "^2.1.0"
   },

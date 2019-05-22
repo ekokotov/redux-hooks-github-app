@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {HashRouter} from 'react-router-dom'
 import Routes from './routes';
-import {StoreProvider} from './store/redux-hooks';
+import {StoreProvider} from 'redux2hooks';
 // import {actionLogger, stateLogger} from "./store/middleware";
 import reducers from './store/reducer';
 

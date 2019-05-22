@@ -1,5 +1,5 @@
 import React, {useEffect, useContext, Fragment} from 'react';
-import {Store} from "../../store/redux-hooks";
+import {Store} from "redux2hooks";
 import {loadFeed, loadNextPage} from "../../store/feed/actions";
 import Event from "./event";
 

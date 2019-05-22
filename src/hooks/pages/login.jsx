@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import Alert from '../components/alert';
 import FormInput from '../components/input';
 import {login as signIn} from "../store/auth/actions";
-import {connect} from "../store/redux-hooks";
+import {connect} from "redux2hooks";
 import Octicon, {LogoGithub} from "@githubprimer/octicons-react";
 
 function Login(props) {
