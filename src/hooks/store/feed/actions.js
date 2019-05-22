@@ -1,9 +1,10 @@
 import {LOADING_END, LOADING_FAILED, LOADING_START, LOADING_SUCCESS, SET_PAGE} from "../feed/action-types";
 import API from "../../../api";
 
-export const loadFeed = () => async (dispatch, store) => {
+export const loadFeed = () => async (dispatch, getState) => {
   dispatch({type: LOADING_START});
   try {
+    const store = getState();
     const me = store.auth.me.login;
     const events = await API.getFeed(me, store.feeds.page);
 
@@ -15,7 +16,9 @@ export const loadFeed = () => async (dispatch, store) => {
   }
 };
 
-export const loadNextPage = () => (dispatch, store) => {
+export const loadNextPage = () => (dispatch, getState) => {
+  const store = getState();
   const page = store.feeds.page + 1;
+
   dispatch({type: SET_PAGE, payload: {page}})
 };
