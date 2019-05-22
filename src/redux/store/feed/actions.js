@@ -1,5 +1,5 @@
 import {LOADING_END, LOADING_FAILED, LOADING_START, LOADING_SUCCESS, SET_PAGE} from "../feed/action-types";
-import API from "../../../lib/api";
+import API from "../../../api";
 
 export const loadFeed = () => async (dispatch, getState) => {
   const store = getState();
