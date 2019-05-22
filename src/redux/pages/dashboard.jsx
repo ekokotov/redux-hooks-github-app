@@ -3,6 +3,7 @@ import Nav from '../components/navigation';
 import Stats from "../components/stats";
 import Repos from "../components/repositories";
 import Followers from "../components/followers";
+import Feed from "../components/feeds";
 
 function DashBoard(props) {
   return (
@@ -13,10 +14,12 @@ function DashBoard(props) {
           <div className="col-sm">
             <Stats/>
             <br/>
-            <Followers/>
+            <Feed/>
           </div>
           <div className="col-sm">
             <Repos/>
+            <br/>
+            <Followers/>
           </div>
         </div>
       </div>
