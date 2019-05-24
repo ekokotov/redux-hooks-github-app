@@ -4,7 +4,7 @@ import DashBoard from "./pages/dashboard";
 import {Switch, Route} from 'react-router-dom';
 import PrivateRoute from "./components/private-route";
 import {initAuth} from './store/auth/actions';
-import {connect} from "redux2hooks";
+import {connect} from 'redux2hooks';
 
 function Routes(props) {
   useEffect(() => {
